@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bom xmlns="http://cyclonedx.org/schema/bom/1.2" serialNumber="urn:uuid:1b9fcfe5-ecb7-4328-837e-a0bad8b0b296" version="1">
+    <metadata>
+        <timestamp>2021-08-16T08:53:04.233Z</timestamp>
+        <tools>
+            <tool>
+                <vendor>CycloneDX</vendor>
+                <name>Node.js module</name>
+                <version>2.0.0</version>
+            </tool>
+        </tools>
+    </metadata>
+    <components>
+        <component type="library" bom-ref="pkg:npm/%40babel/polyfill@7.10.4">
+            <group>@babel</group>
+            <name>polyfill</name>
+            <version>7.10.4</version>
+            <description>
+                <![CDATA[Provides polyfills necessary for a full ES2015+ environment]]>
+            </description>
+            <hashes>
+                <hash alg="SHA-512">f0161c9d5a90e64303d875e81c89c11fb1f56ffb8fdca767c026173aa1675ea82e3b2baee38dd65eeb1b2146d611f6376744f1934335b86ffc62e00c84d97ace</hash>
+            </hashes>
+            <licenses>
+                <license>
+                    <id>MIT</id>
+                </license>
+            </licenses>
+            <purl>pkg:npm/%40babel/polyfill@7.10.4</purl>
+            <externalReferences>
+                <reference type="website">
+                    <url>https://babeljs.io/</url>
+                </reference>
+                <reference type="issue-tracker">
+                    <url>https://github.com/babel/babel/issues</url>
+                </reference>
+                <reference type="vcs">
+                    <url>git+https://github.com/babel/babel.git</url>
+                </reference>
+            </externalReferences>
+        </component>
+    </components>
+
+<!--These tags are either not in the Cyclone DX scheme, or used slightly differently than intended-->
+<author>Student Name</author>
+<authorID>AU ID</authorID>
+
+<software_name>Student Homework</software_name>
+<version>v1.0</version>
+    <InputVerification>
+        <format>
+            <type>URL</type>
+            <URLformat>http://name-of-server.com/rubik?op=XXXXX&#38;cube=YYYYYY</URLformat>       
+            <definition>name-of-server.com = name of the microservice provider</definition>
+            <definition>rcube = name of the microservice</definition>
+            <definition>op = operation to perform</definition>
+            <definition>faces=YYYYYY = parameters used in performing the operation; colors on each face</definition>
+        </format>
+        <operations>
+             <operation>check = Determines whether the cube has been solved or not</operation>
+             <operation>solve = Creates a solved cube</operation>
+             <operation>info = Identifies the developer</operation>
+        </operations>
+        <notes>
+            <note>If names are duplicated in the query string, the leftmost value is associated with the name.</note>
+            <note>Names in the query string may be designated as empty, in which case they have an empty string as a                         value.  This should not be interpreted as a missing parameter.</note>
+        </notes>
+    </InputVerification>
+
+    <OutputVerification>
+        <format>
+        <type>String</type>
+        
+    </format>
+    </OutputVerification>
+
+    <EnvironmentDifferences>
+    <testing>HTTP, HTTPS</testing>
+    <production>HTTPS</production>
+    </EnvironmentDifferences>
+
+    <CPUusage>
+    </CPUusage>
+
+    <ApprovedLibraries>
+    </ApprovedLibraries>
+</bom>
+
+
+
