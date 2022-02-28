@@ -1,7 +1,6 @@
 from collections import Counter
 
-
-import rubik.cube as rubik
+from rubik.cube import Cube
 
 
 ADJACENT_PIECES = [
@@ -34,7 +33,7 @@ OPPOSITE_FACES = [
 ]
 
 
-def _adjacency_check(cube: str) -> bool:
+def _2d_adjacency_check(cube: str) -> bool:
     """Checks if the pieces on each cuboid have valid colors given the opposing faces of the cube.
 
     Args:
@@ -65,9 +64,9 @@ def _check(parms: dict) -> dict:
         A dict containing the status of the cube validation check.
     """
     result = {}
-    encoded_cube = parms.get("cube", None)
+    encoded_cube = parms.get("cube")
     if encoded_cube is None:
-        result["status"] = "error: cube must be provided for validation"
+        result["status"] = "error: cube must be present"
     elif not isinstance(encoded_cube, str):
         result["status"] = "error: cube must be given as a string"
     elif not encoded_cube.isalnum():
@@ -80,7 +79,7 @@ def _check(parms: dict) -> dict:
         result["status"] = "error: cube must have exactly 9 pieces to each color"
     elif len(set(encoded_cube[i] for i in range(4, 54, 9))) != 6:
         result["status"] = "error: cube must have uniquely colored pieces at the center of each face"
-    elif not _adjacency_check(encoded_cube):
+    elif not Cube(encoded_cube).is_adjacency_safe():
         result["status"] = "error: cube adjacent pieces must be valid"
     else:
         result["status"] = "ok"
