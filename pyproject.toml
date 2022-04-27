@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "rubik"
+version = "1.0.0"
+description = "A microservice to solve a rubik's cube"
+authors = ["Will Humphlett <will@humphlett.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.1.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+pytest = "^7.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120

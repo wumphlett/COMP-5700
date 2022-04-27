@@ -1,29 +1,29 @@
-from rubik.check import _check
+from rubik.check import check
 from rubik.cube import Cube
 
 
-ALLOWED_ROTATIONS = set("FfRrBbLlUuDd")
+ALLOWED_ROTATIONS = "FfRrBbLlUuDd"
+ROTATIONS_SET = set(ALLOWED_ROTATIONS)
 
 
-def _solve(parms):
-    if (cube_result := _check(parms)).get("status") != "ok":
-        return cube_result
+def solve(params):
+    cube_check = check(params)
+    if cube_check.get("status", "") != "ok":
+        return cube_check
 
-    result = {}
-    rotations = parms.get("rotate")
+    rotations = params.get("rotate")
     if not rotations:
-        rotations = "F"
-
-    if not isinstance(rotations, str):
-        result["status"] = "error: rotate must be given as a string"
-    elif not rotations.isalpha():
-        result["status"] = "error: rotate must be given as a solely alphabetical string"
-    elif not all(rotation in ALLOWED_ROTATIONS for rotation in rotations):
-        result["status"] = "error: rotate must be comprised of characters in FfRrBbLlUuDd"
+        result = {"status": "ok", "solution": Cube(params["cube"]).solve()}
     else:
-        cube = Cube(parms.get("cube"))
-        for rotation in rotations:
-            cube.rotate(rotation)
-        result["status"] = "ok"
-        result["cube"] = str(cube)
+        if not isinstance(rotations, str):
+            result = {"status": "error: rotate must be given as a string"}
+        elif not rotations.isalpha():
+            result = {"status": "error: rotate must be given as a solely alphabetical string"}
+        elif not all(rotation in ROTATIONS_SET for rotation in rotations):
+            result = {"status": f"error: rotate must be comprised of characters in {ALLOWED_ROTATIONS}"}
+        else:
+            cube = Cube(params["cube"])
+            for rotation in rotations:
+                cube.rotate(rotation)
+            result = {"status": "ok", "cube": str(cube)}
     return result

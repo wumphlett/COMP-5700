@@ -2,7 +2,6 @@ from collections import Counter
 
 from rubik.cube import Cube
 
-
 ADJACENT_PIECES = [
     (0, 29, 42),
     (1, 43),
@@ -54,17 +53,9 @@ def _2d_adjacency_check(cube: str) -> bool:
     return True
 
 
-def _check(parms: dict) -> dict:
-    """Checks that a valid cube has been provided in parms.
-
-    Args:
-        parms: A dict of parameters.
-
-    Returns:
-        A dict containing the status of the cube validation check.
-    """
+def check(params: dict) -> dict:
     result = {}
-    encoded_cube = parms.get("cube")
+    encoded_cube = params.get("cube")
     if encoded_cube is None:
         result["status"] = "error: cube must be present"
     elif not isinstance(encoded_cube, str):

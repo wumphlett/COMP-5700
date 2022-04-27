@@ -1,3 +1,3 @@
-def _info(parms):
+def info(_):
     result = {"status": "wah0028"}
     return result
