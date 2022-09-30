@@ -4,7 +4,7 @@ Software Process
 
 ```
 
-    Total Views per Day from 2022-08-16 to 2022-09-29
+    Total Views per Day from 2022-08-16 to 2022-09-30
 
     Repository Views
   103.00  ┼                   ╭╮
@@ -21,9 +21,9 @@ Software Process
    27.47  ┤         ││     │      ╰╮│ │ ╭╮ │ │    │ │╭╮
    20.60  ┤        ╭╯│     │       ╰╯ │╭╯│ │ │  ╭╮│ ╰╯│
    13.73  ┤╭╮      │ ╰╮  ╭─╯          ││ │ │ │  │╰╯   │
-    6.87  ┼╯│╭─╮╭╮╭╯  │ ╭╯            ││ │ │ ╰╮ │     │
-    0.00  ┤ ╰╯ ╰╯╰╯   ╰─╯             ╰╯ ╰─╯  ╰─╯     ╰
+    6.87  ┼╯│╭─╮╭╮╭╯  │ ╭╯            ││ │ │ ╰╮ │     ╰╮
+    0.00  ┤ ╰╯ ╰╯╰╯   ╰─╯             ╰╯ ╰─╯  ╰─╯      ╰
 
-    Chart last updated - Thu Sep 29 00:43:53 2022 UTC
+    Chart last updated - Fri Sep 30 00:53:51 2022 UTC
     
 ```
